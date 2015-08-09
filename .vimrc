@@ -11,6 +11,7 @@ Plugin 'rking/ag.vim'
 Plugin 'wincent/command-t'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-bundler'
@@ -21,6 +22,10 @@ Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-sensible'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'mattn/emmet-vim'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'elzr/vim-json'
 call vundle#end()
 
 
@@ -97,8 +102,10 @@ let mapleader = " "
 filetype plugin on
 
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType sql setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType htmldjango setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType json setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType eruby setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
@@ -106,8 +113,11 @@ autocmd FileType scss setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType less setlocal shiftwidth=4 softtabstop=4 expandtab
 autocmd FileType css setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType sh setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType liquid setlocal shiftwidth=2 softtabstop=2 expandtab
 
 au BufNewFile,BufRead *.eliom set filetype=ocaml
+au BufNewFile,BufRead *.ssp set filetype=html
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -121,7 +131,7 @@ colorscheme solarized
 set nobackup
 set number
 set nowritebackup
-set wildignore+=node_modules/**,icenine/app/libs/**/*
+set wildignore+=node_modules/**,icenine/app/libs/**/*,public/**/*
 
 let g:tmux_navigator_save_on_switch = 1
 
@@ -152,8 +162,9 @@ let g:syntastic_eruby_checkers = ['']
 let g:syntastic_html_checkers = ['']
 let g:syntastic_less_checkers = ['']
 let g:syntastic_c_checkers = ['']
+let g:syntastic_scala_checkers = ['']
 let g:syntastic_ocaml_checkers = ['merlin']
-let g:syntastic_disabled_filetypes = ['html', 'rb']
+let g:syntastic_disabled_filetypes = ['html', 'rb', 'scala']
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

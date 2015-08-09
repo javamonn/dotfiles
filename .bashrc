@@ -2,10 +2,11 @@ export WORKON_HOME=~/.virtualenvs
 # set source venvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
 
-export PATH="/usr/local/mysql/bin:/Users/daniel/.virtualenvs/codehs/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Applications/Android Studio.app/sdk/platform-tools:$PATH"
+export PATH="/usr/local/mysql/bin:/Users/daniel/.virtualenvs/codehs/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Applications/Android Studio.app/sdk/platform-tools:/usr/local/share/scala/bin:/Users/daniel/bin:$PATH"
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 export PATH=/System/Library/Frameworks/JavaScriptCOre.framework/Versions/Current/Resources/:$PATH
+export JPF_HOME="/Users/daniel/projects/jpf/jpf-core"
 
 # CodeHS aliases
 alias setup="workon codehs; cd ~/Documents/codehs/codehs;"
@@ -27,7 +28,14 @@ alias ...="cd ../.."
 alias ls="ls -FhG" # set ls to do some custom stuff
 alias la="ls -a"
 alias ll="ls -l"
-alias s="subl" # open the current dir in sublime with `s`
+
+alias gs="git status"
+alias ga="git add ."
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gbd="git branch -d"
+alias gbD="git branch -D"
+alias gr="git reset"
 
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
@@ -40,10 +48,6 @@ function parse_git_dirty {
 function parse_git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/{\1$(parse_git_dirty)}/"
 }
-
-# function parse_git_branch {
-#    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \{\1\}/'
-# }
 
 # Set the prompt
 BLUE="\[\033[0;34m\]"
