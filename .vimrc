@@ -44,10 +44,7 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
+set mouse=
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -115,9 +112,14 @@ autocmd FileType css setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType ocaml setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sh setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType liquid setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType config setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType haskell setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType dockerfile setlocal shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 expandtab
 
 au BufNewFile,BufRead *.eliom set filetype=ocaml
 au BufNewFile,BufRead *.ssp set filetype=html
+au BufNewFile,BufRead *.conf set filetype=config
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -165,6 +167,7 @@ let g:syntastic_c_checkers = ['']
 let g:syntastic_scala_checkers = ['']
 let g:syntastic_ocaml_checkers = ['merlin']
 let g:syntastic_disabled_filetypes = ['html', 'rb', 'scala']
+let g:syntastic_javascript_checkers = ['standard']
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
