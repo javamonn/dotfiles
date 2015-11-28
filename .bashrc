@@ -1,19 +1,5 @@
-export WORKON_HOME=~/.virtualenvs
-# set source venvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/daniel/bin:/usr/local/go/bin:$PATH"
 
-export PATH="/usr/local/mysql/bin:/Users/daniel/.virtualenvs/codehs/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Applications/Android Studio.app/sdk/platform-tools:/usr/local/share/scala/bin:/Users/daniel/bin:$PATH"
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
-
-export PATH=/System/Library/Frameworks/JavaScriptCOre.framework/Versions/Current/Resources/:$PATH
-export JPF_HOME="/Users/daniel/projects/jpf/jpf-core"
-
-# CodeHS aliases
-alias setup="workon codehs; cd ~/Documents/codehs/codehs;"
-alias server="workon codehs; cd ~/Documents/codehs/codehs; ./manage.py runserver;"
-alias shell="workon codehs; cd ~/Documents/codehs/codehs; ./manage.py shell_plus;"
-alias frozen-server="workon codehs; cd ~/Documents/codehs/codehs; USE_FROZEN=True ./manage.py runserver;"
-alias frozen-shell="workon codehs; cd ~/Documents/codehs/codehs; USE_FROZEN=True ./manage.py shell_plus;"
 # Set the prompt to show the current git branch
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -28,7 +14,6 @@ alias ...="cd ../.."
 alias ls="ls -FhG" # set ls to do some custom stuff
 alias la="ls -a"
 alias ll="ls -l"
-
 alias gs="git status"
 alias ga="git add ."
 alias gcm="git commit -m"
@@ -54,7 +39,13 @@ BLUE="\[\033[0;34m\]"
 DEFAULT="\[\033[0m\]"
 PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 30 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-15}; else CurDir=$DIR; fi'
 PS1="[\$CurDir]$BLUE\$(parse_git_branch) $DEFAULT\$ "
+PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/daniel/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/home/daniel/google-cloud-sdk/completion.bash.inc'
+
+export GOPATH=$HOME/gopath

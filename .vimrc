@@ -26,6 +26,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'elzr/vim-json'
+Plugin 'fatih/vim-go'
 call vundle#end()
 
 
@@ -97,6 +98,8 @@ endif
 
 let mapleader = " "
 filetype plugin on
+
+set tabstop=2
 
 autocmd FileType html setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sql setlocal shiftwidth=2 softtabstop=2 expandtab
